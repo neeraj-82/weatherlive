@@ -1,0 +1,201 @@
+@import 'color.scss';
+@import 'mixin';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.weather_section{
+   @include center;
+    background:$dark_blue;
+    min-height: 100vh;
+   
+    
+}
+.area{
+   
+    width: 520px;
+    min-height: 400px;
+    background: $light_blue;
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 16px;
+    
+
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        
+        .city,.country{
+            margin: 40px 0px 20px 0px;
+            padding: .2em;
+            input{
+                padding: 2px;
+                background:$light_blue;
+                font-size: 16px;
+                border: none;
+                border-bottom: 2px solid $white;
+                outline: none;
+                color: $white;
+                font-family: $font;
+            }
+            ::placeholder{
+                color: $white;
+                
+                font-family: $font;
+                font-size: 16px;
+                    
+                    letter-spacing: 1px;
+            }
+           
+           
+        }
+        .country{
+            margin: 10px 0px 20px 0px;
+        }
+        .show{
+            @include center;
+            button{
+           
+           
+                padding: 10px 30px;
+               
+                font-family: $font;
+                color: $white;
+                text-decoration: none;
+                background-color: $blue;
+                border-radius: 30px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                transition: 0.5s;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+            }
+            button:hover {
+                letter-spacing: 5px;
+                padding: 15px 30px;
+            }
+        }
+    }
+   
+    
+   
+    .temp{
+
+        .location{
+            
+            color: $blue;
+            font-family: $font;
+            font-weight: 800;
+            padding: 10px;
+        letter-spacing: 1px;
+        .icon{
+            color: $yellow;
+        }
+        }
+        .degree{
+            @include center;
+            font-family: $font;
+            color: $yellow;
+            font-size: 55px;
+            padding: 15px;
+            sup{
+                font-size: 20px;
+            }
+            span{
+                font-size: 40px;
+            }
+        }
+        .report{
+            @include center;
+            color: $blue;
+            font-family: $font;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+       }
+       .detail{
+        .humidity{
+            display: flex;
+           padding: 10px;
+            color:$yellow;
+            justify-content: center;
+            letter-spacing: 1px;
+            transition: 0.2s;
+            .hum{
+                padding: 10px;
+                font-family: $font;
+            }
+            .wind{
+                padding: 10px;
+                font-family: $font;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 475px) {
+
+    .area{
+        width: 400px;
+    }
+    .location{
+
+        @include center;
+    }
+    .detail{
+        .humidity{
+            flex-direction: column;
+        }
+    }
+}
+@media screen and (max-width: 410px) {
+
+    .area{
+        width: 360px;
+    }
+    // .location{
+
+    //     @include center;
+    // }
+    // .detail{
+    //     .humidity{
+    //         flex-direction: column;
+    //     }
+    // }
+}
+@media screen and (max-width: 375px) {
+
+    .area{
+        width: 320px;
+        border-radius: 0px;
+        margin: 5px;
+    }
+    // .location{
+
+    //     @include center;
+    // }
+    .detail{
+        .humidity{
+            font-size: 14px;
+            @include center;
+        }
+    }
+    
+}
+@media screen and (max-width: 220px) {
+    .city,.country{
+        input{
+            text-align: center;
+        }
+    }
+   
+}
+
+
+

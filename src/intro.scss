@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.intro {
+    @include center;
+    min-height: 100vh;
+    background: $dark_blue;
+}
+
+.card {
+    position: relative;
+    width: 520px;
+    height: 400px;
+    background: $light_blue;
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 16px;
+    margin: 5px;
+
+    &::before {
+        content: "";
+        top: -50%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $blue;
+        transform: skewY(345deg);
+        transition: 0.5s;
+    }
+
+    &::after {
+        content: "temprature";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 600;
+        font-size: 8rem;
+        color: rgba(0, 0, 0, 0.1);
+    }
+
+    .img_box {
+        position: relative;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        z-index: 1;
+
+        .img {
+            font-size: 220px;
+            transition: 0.5s;
+            color: $cloud_color;
+            margin-right: 20px;
+            animation: cloud 5s linear infinite;
+        }
+        form{
+            display: none;
+        }
+
+        .sun {
+            font-size: 160px;
+            transition: 0.5s;
+            color: $yellow;
+            margin-left: -100px;
+            margin-top: -20px;
+            z-index: -1;
+            position: fixed;
+        }
+    }
+
+    &:hover {
+        &::before {
+            top: -70%;
+            transform: skewY(390deg);
+        }
+        form{
+            display: block;
+        }
+        .img_box {
+            .img {
+                font-size: 150px;
+                z-index: -1;
+                animation: none;
+            }
+
+            .sun {
+                position: relative;
+                font-size: 130px;
+            }
+        }
+    }
+}
+
+
+
+.card {
+    .content {
+        position: relative;
+       @include center;
+        flex-direction: column;
+        z-index: 1;
+
+        h4 {
+            font-size: 16px;
+            color: $white;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: $font;
+        }
+        .a {
+            position: relative;
+            top: 200px;
+            padding: 10px 30px;
+            margin-top: 15px;
+            font-family: $font;
+            color: $white;
+            text-decoration: none;
+            background-color: $blue;
+            border-radius: 30px;
+            opacity: 0;
+            transition: 0.5s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .a:hover {
+            letter-spacing: 5px;
+            padding: 15px 30px;
+        }
+    }
+
+    &:hover {
+        .content {
+            h4 {
+                display: none;
+            }
+
+            .a {
+                top: 50px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card{
+        width: 400px;
+       
+        .img_box{
+            .img{
+                font-size: 190px;
+            }
+            .sun{
+                font-size: 130px;
+                margin-left: 40px;
+            }
+        }
+        &:hover{
+            .img_box{
+                .img{
+                    margin-left: 0px;
+                    font-size: 140px;
+                }
+                .sun{
+                   
+                    margin-left: -100px;
+                    font-size:120px ;
+                }
+            }
+           
+        }
+    }
+    .card{
+        .content{
+            h4{
+                margin-top: 20px;            }
+        }
+    }
+    
+}
+@media screen and (max-width: 375px) {
+    .card{
+        
+        margin:5px;
+        width: 320px;
+       
+        .img_box{
+            .img{
+                font-size: 150px;
+            }
+            .sun{
+                font-size: 130px;
+                margin-left: 40px;
+            }
+        }
+    }
+    .card{
+        .content{
+            h4{
+                margin-top: 60px;
+            }
+        }
+    }
+}
